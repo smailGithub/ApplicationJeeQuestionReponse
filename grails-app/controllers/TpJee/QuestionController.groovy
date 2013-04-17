@@ -99,18 +99,4 @@ class QuestionController {
             redirect(action: "show", id: id)
         }
     }
-	
-	def createQuestion(){
-		def questionInstance = new Question(params)
-		if (!questionInstance.save(flush: true)) {
-			flash.message="Erreur création de question"
-			redirect(action:"homeEnseignant" ,controller:"Enseignant")
-		}else{
-		//flash.message = message(code: 'default.created.message', args: [message(code: 'question.label', default: 'Question'), questionInstance.id])
-		flash.message="Question créer"
-		redirect(action: "homeEnseignant", controller:"Enseignant")
-		}
-	}
-	
-	
 }

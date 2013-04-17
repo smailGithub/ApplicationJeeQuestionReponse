@@ -99,14 +99,15 @@ class EtudiantController {
             redirect(action: "show", id: id)
         }
     }
+	
 	def homeEtudiant(Long id){
-   def etudiantInstance = Etudiant.get(id)
-        if (!etudiantInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'etudiant.label', default: 'Etudiant'), id])
-            redirect(view: "homeEntudiantt")
-            return
-        }
-
-        [etudiantInstance: etudiantInstance]
-		}
+		def etudiantInstance = Etudiant.get(id)
+			 if (!etudiantInstance) {
+				 flash.message = message(code: 'default.not.found.message', args: [message(code: 'etudiant.label', default: 'Etudiant'), id])
+				 redirect(view: "homeEntudiantt")
+				 return
+			 }
+	 
+			 [etudiantInstance: etudiantInstance]
+			 }
 }

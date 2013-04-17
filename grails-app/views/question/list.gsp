@@ -24,6 +24,8 @@
 				<thead>
 					<tr>
 					
+						<g:sortableColumn property="commentaire" title="${message(code: 'question.commentaire.label', default: 'Commentaire')}" />
+					
 						<g:sortableColumn property="date" title="${message(code: 'question.date.label', default: 'Date')}" />
 					
 						<th><g:message code="question.enseigant.label" default="Enseigant" /></th>
@@ -36,7 +38,9 @@
 				<g:each in="${questionInstanceList}" status="i" var="questionInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${questionInstance.id}">${fieldValue(bean: questionInstance, field: "date")}</g:link></td>
+						<td><g:link action="show" id="${questionInstance.id}">${fieldValue(bean: questionInstance, field: "commentaire")}</g:link></td>
+					
+						<td><g:formatDate date="${questionInstance.date}" /></td>
 					
 						<td>${fieldValue(bean: questionInstance, field: "enseigant")}</td>
 					

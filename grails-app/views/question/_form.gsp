@@ -2,6 +2,14 @@
 
 
 
+<div class="fieldcontain ${hasErrors(bean: questionInstance, field: 'commentaire', 'error')} ">
+	<label for="commentaire">
+		<g:message code="question.commentaire.label" default="Commentaire" />
+		
+	</label>
+	<g:textField name="commentaire" value="${questionInstance?.commentaire}"/>
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: questionInstance, field: 'date', 'error')} required">
 	<label for="date">
 		<g:message code="question.date.label" default="Date" />

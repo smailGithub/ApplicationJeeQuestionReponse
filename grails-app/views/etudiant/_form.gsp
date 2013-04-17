@@ -42,3 +42,20 @@
 	<g:field type="email" name="mail" required="" value="${etudiantInstance?.mail}"/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: etudiantInstance, field: 'reponses', 'error')} ">
+	<label for="reponses">
+		<g:message code="etudiant.reponses.label" default="Reponses" />
+		
+	</label>
+	
+<ul class="one-to-many">
+<g:each in="${etudiantInstance?.reponses?}" var="r">
+    <li><g:link controller="reponse" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
+</g:each>
+<li class="add">
+<g:link controller="reponse" action="create" params="['etudiant.id': etudiantInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'reponse.label', default: 'Reponse')])}</g:link>
+</li>
+</ul>
+
+</div>
+
